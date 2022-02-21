@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CattosS Games</title>
+    
+    <link rel="stylesheet" href="https://api-ssps.cajthaml.eu/file/global/css/reset_ld9mrCCm.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');        
+
+        body {
+            width: 100vw;
+            height: 100vh;
+
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+
+            color: #000;
+            background-color: #f8f8fb;
+
+            overflow-x: hidden;
+        }
+
+        .player {
+            width: 1320px;
+            height: 100%;
+
+            padding: 20px 0px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 30px;
+
+        }
+
+            .profile {
+                width: 100%;
+                height: 335px;
+
+                overflow: hidden;
+            }
+            .profile, .main article {
+                border-radius: 25px;
+
+                background-color: #fff;
+
+                box-shadow: 0px 0px 20px 10px #dddddddd;
+            }
+
+                .background {
+                    width: 100%;
+                    height: 57%;
+
+                    overflow: hidden;
+
+                    box-shadow: 0px 0px 20px 10px #dddddddd;
+                }
+
+                    .backgroundFull {
+                        width: 100%;
+                        height: auto;
+                    }
+                    .backgroundFull img {
+                        width: 100%;
+                        height: auto;
+
+                        position: relative;
+                        top: -417px;
+                    }
+
+                .user {
+                    width: 0px;
+                    height: auto;
+
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    gap: 175px;
+
+                    position: relative;
+                    top: -40%;
+                    left: 42.5%;
+                }
+
+                    .userProfile {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                        .profilePicture {
+                            width: auto;
+                            height: auto;
+                        }
+                        .profilePicture img {
+                            width: auto;
+                            height: 164px;
+
+                            border: 10px solid #fff;
+                            border-radius: 100px;
+                        }
+
+                        .level {
+                            width: 37px;
+                            height: 37px;
+
+                            font-weight: 700;
+
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+
+                            position: relative;
+                            top: -52px;
+                            left: 65px;
+
+                            color: #fff;
+                            background-color: #a29bfe;
+
+                            border: 8px solid #fff;
+                            border-radius: 50px;
+                        }
+                        .level:hover {
+                            transform: scale(1.1);
+                        }
+
+                        .name {
+                            width: 250px;
+                            height: 50px;
+
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: space-around;
+
+                            position: absolute;
+                            top: 204px;
+
+                            color: #333;
+                        }
+                        .name h1 {
+                            font-size: 25px;
+                            font-weight: 700;
+
+                            letter-spacing: 1px;
+                        }
+                        .name p {
+                            font-size: 14px;
+                            font-weight: 400;
+
+                            text-transform: uppercase;
+                        }
+
+                    .requests {
+                        width: 355px;
+                        height: 50px;
+
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        gap: 30px;
+
+                        color: #fff;
+                    }
+                    .requests div {
+                        height: 100%;
+
+                        font-size: 14px;
+                        font-weight: 500;
+
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        border-radius: 7px;
+
+                        box-shadow: 0px 0px 10px 1px #626262dd;
+                    }
+                    .requests div:hover {
+                        cursor: pointer;
+                    }
+                    .requests div:first-child {
+                        width: 150px;
+
+                        background-color: #6c5be6;
+                    }
+                    .requests div:first-child:hover {
+                        width: 150px;
+
+                        background-color: #7967ff;
+                    }
+                    .requests div:last-child {
+                        width: 160px;
+
+                        background-color: #74b9ff;
+                    }
+                    .requests div:last-child:hover {
+                        width: 160px;
+
+                        background-color: #8fc7ff;
+                    }
+
+                .profileInfo {
+                    width: 100%;
+                    height: auto;
+
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    gap: 0px;
+
+                    position: relative;
+                    bottom: 175px;
+                }
+
+                    .info {
+                        width: 512px;
+                        height: 40px;
+
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                    .info div {
+                        width: auto;
+                        height: 100%;
+
+                        padding: 0px 24px;
+
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: space-around;
+                    }
+                    .info div:first-child, .info div:nth-child(2), .info div:nth-child(3) {
+                        border-right: 1px solid #e5e5e5;
+                    }
+                    .info div:nth-child(2), .info div:nth-child(3) {
+                        padding: 0px 22px;
+                    }
+                    .info div:last-child:hover {
+                        transform: rotate(180deg);
+                    }
+                    .info div p:first-child {
+                        font-size: 18px;
+                        font-weight: 700;
+                    }
+                    .info div p:last-child {
+                        font-size: 12px;
+                        font-weight: 600;
+
+                        text-transform: uppercase;
+                    }
+
+                    .otherNetworks {
+                        width: 317px;
+                        height: auto;
+
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+
+                        gap: 22px;
+                    }
+                    .otherNetworks div {
+                        width: 47px;
+                        height: 47px;
+
+                        font-size: 20px;
+
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        color: #fff;
+                        background-color: #6c5be6;
+
+                        border-radius: 10px;
+                    }
+                    .otherNetworks div:hover {
+                        cursor: pointer;
+                        transform: scale(1.1);
+                    }
+
+            .main {
+                width: 100%;
+                height: auto;
+
+                padding-bottom: 30px;
+
+                display: grid;
+                grid-template-columns: 20% 54% 20%;
+                grid-template-rows: 50% 45%;
+
+                align-content: space-between;
+                justify-content: center;
+                justify-items: stretch;
+
+                gap: 3%;
+            }
+            .main article {
+                padding: 20px;
+            }
+            .main article h2 {
+                font-size: 25px;
+                font-weight: 700;
+
+                padding-bottom: 10px;
+
+                background: -webkit-linear-gradient(45deg, #6c5be6, #74b9ff);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+                .aboutMe {
+                    grid-row: 1/3;
+                }
+                .aboutMe p {
+                    word-spacing: 10px;
+                }
+
+                .recentlyPlayed {
+                    grid-column: 2/4;
+                }
+
+                    .game {
+                        width: 100%;
+                        height: 50px;
+
+                        border-bottom: 1px solid #d3d3d380;
+
+                        
+                    }
+                    .game, .rank, .gameLevel {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: space-between;
+                    }
+
+                        .rank {
+                            width: 150px;
+                        }
+                        .rank :first-child, .gameLevel :nth-child(2) {
+                            font-weight: 600;
+                        }
+
+                        .gameLevel {
+                            width: 100px;
+                        }
+
+                    .awards {
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        align-items: center;
+                        justify-content: space-around;
+
+                        gap: 10px;
+                    }
+
+                        .award {
+                            width: 50px;
+                            height: 50px;
+
+                            font-size: 20px;
+
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+
+                            color: #fff;
+                            background-image: linear-gradient(45deg, #6c5be6, #74b9ff);
+
+                            border-radius: 25px;
+                        }
+                        .award:hover {
+                            transform: scale(1.1);
+                        }
+
+                .cats >:nth-child(3) {
+                    padding-top: 30px;
+
+                    text-align: center;
+                }
+                .cats :nth-child(3) span {
+                    font-size: 50px;
+                    font-weight: 700;
+
+                    color: #6c5be6;
+                }
+
+        @media (max-height: 950px) {
+            body {
+                height: auto;
+            }
+        }
+
+        @media (max-width: 1360px) {
+            body {
+                height: auto;
+            }
+
+            .player {
+                width: 95%;
+            }
+
+            .backgroundFull img {
+                top: -245px;
+            }
+
+            .user {
+                left: 50%;
+            }
+
+            .requests {
+                left: 67%;
+            }
+        }
+
+        @media (max-width: 1210px) {
+            .main {
+                grid-template-rows: 50% auto;
+            }
+        }
+
+        @media (max-width: 1095px) {
+            .backgroundFull img {
+                top: -265px;
+            }
+        }
+
+        @media (max-width: 1060px) {
+            .main {
+                grid-template-columns: 65% 30%;
+                grid-template-rows: 35% 45% auto;
+            }
+
+            .aboutMe {
+                grid-row: 1/2;
+                grid-column: 1/3;
+            }
+
+            .recentlyPlayed {
+                grid-column: 1/3;
+            }
+        }
+
+        @media (max-width: 1360px) {
+            .profile {
+                height: 550px;
+            }
+
+            .background {
+                height: 47%;
+            }
+
+            .user {
+                flex-direction: column;
+
+                gap: 20px;
+
+                top: -20%;
+                left: 50%;
+            }
+
+            .requests {
+                top: -45%;
+                left: 40%;
+            }
+
+            .profileInfo {
+                bottom: 90px;
+            }
+        }
+
+        @media (max-width: 920px) {
+            .profile {
+                height: 630px;
+            }
+
+            .profileInfo {
+                flex-direction: column;
+                
+                gap: 50px;
+            }
+
+            .background {
+                height: 245px;
+            }
+            .backgroundFull img {
+                height: 100%;
+                transform: scale(1.2);
+            }
+        }
+
+        @media (max-width: 990px) {
+            .backgroundFull img {
+                top: -140px;
+            }
+        }
+
+        @media (max-width: 690px) {
+            .backgroundFull img {
+                top: -60px;
+            }
+        }
+
+        @media (max-width: 580px) {
+            .main {
+                grid-template-columns: 100%;
+                grid-template-rows: repeat(4, auto);
+            }
+
+            .aboutMe {
+                grid-column: 1/2;
+                grid-row: 1/2;
+            }
+
+            .recentlyPlayed {
+                grid-column: 1/2;
+                grid-row: 2/3;
+            }
+
+            .gameAwards {
+                grid-column: 1/2;
+                grid-row: 3/4;
+            }
+
+            .cats {
+                grid-column: 1/2;
+                grid-row: 4/5;
+            }
+        }
+
+        @media (max-width: 530px) {
+            .backgroundFull img {
+                top: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .backgroundFull img {
+                top: 0px;
+            }
+        }
+
+        @media (max-width: 440px) {
+            .profile {
+                height: 840px;
+            }
+
+            .user {
+                flex-direction: column;
+
+                gap: 35px;
+
+                top: -13%;
+                left: 50%;
+            }
+
+            .requests {
+                height: 130px;
+
+                flex-direction: column;
+            }
+
+            .profileInfo {
+                gap: 90px;
+
+                bottom: 10px;
+            }
+
+            .info {
+                flex-direction: column;
+
+                gap: 10px;
+
+                bottom: 0px;
+            }
+            .info div:first-child, .info div:nth-child(2), .info div:nth-child(3) {
+                border: none;
+                border-bottom: 1px solid #e5e5e5;
+            }
+        }
+
+        @media (max-width: 410px) {
+            .profile {
+                height: 850px;
+            }
+
+            .background {
+                height: auto;
+            }
+            .backgroundFull img {
+                height: 100%;
+                transform: scale(1.1);
+            }
+
+            .profilePicture, .level {
+                transform: scale(0.9);
+            }
+
+            .profileInfo {
+                bottom: -20px;
+            }
+        }
+
+        @media (max-width: 340px) {
+            .profile {
+                height: 800px;
+            }
+        }
+
+        @media (max-width: 340px) {
+            .game {
+                flex-direction: column;
+                justify-content: space-around;
+            }
+
+            .rank {
+                justify-content: flex-start;
+            }
+            .rank, .gameLevel {
+                width: 100%;
+            }
+
+            .gameLevel {
+                justify-content: flex-end;
+            }
+        }
+    </style>
+</head>
+    
+<body>
+    <article class="player">
+        <article class="profile">
+            <section class="background"><div class="backgroundFull"><img src="https://api-ssps.cajthaml.eu/file/2021-2022/2-wba/34/bg_GlWP3CF3.png" alt="Background image"></div></section>
+            <section class="user">
+                <section class="userProfile">
+                    <section class="profilePicture"><img src="https://matejcajthaml.navarru.cz/img/me-new.png" alt="Profile picture"></section>
+                    <section class="level">
+                        <p>43</p>
+                    </section>
+                    <section class="name">
+                        <h1>Matěj Cajthaml</h1>
+                        <p>&commat;whoasked</p>
+                    </section>
+                </section>
+                <section class="requests">
+                    <div>
+                        <p>Add as friend</p>
+                    </div>
+                    <div>
+                        <p>Send message</p>
+                    </div>
+                </section>
+            </section>
+            <section class="profileInfo">
+                <section class="info">
+                    <div>
+                        <p>12012</p>
+                        <p>her</p>
+                    </div>
+                    <div>
+                        <p>1</p>
+                        <p>kamarádů</p>
+                    </div>
+                    <div>
+                        <p>10</p>
+                        <p>návštěv</p>
+                    </div>
+                    <div>
+                        <p>100</p>
+                        <p>cringe</p>
+                    </div>
+                </section>
+                
+                <section class="otherNetworks">
+                    <div><i class="fa-brands fa-facebook-f"></i></div>
+                    <div><i class="fa-brands fa-instagram"></i></div>
+                    <div><i class="fa-brands fa-discord"></i></div>
+                </section>
+            </section>
+        </article>
+        <main class="main">
+            <article class="aboutMe">
+                <h2>O mně:</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta dolorem perspiciatis tempora harum, accusantium quo necessitatibus, deserunt, perferendis consequatur ab culpa tenetur rem cumque obcaecati velit? Earum sunt consectetur ullam.</p>            </article>
+            <article class="recentlyPlayed">
+                <h2>Naposledy hrané hry:</h2>
+                <section class="game">
+                    <section class="rank">
+                        <p>1.</p>
+                        <p>Lorem ipsum</p>
+                    </section>
+                    <section class="gameLevel">
+                        <p>Level:</p>
+                        <p>69</p>
+                    </section>
+                </section>
+                <section class="game">
+                    <section class="rank">
+                        <p>2.</p>
+                        <p>Lorem ipsum</p>
+                    </section>
+                    <section class="gameLevel">
+                        <p>Level:</p>
+                        <p>100</p>
+                    </section>
+                </section>
+                <section class="game">
+                    <section class="rank">
+                        <p>3.</p>
+                        <p>Lorem ipsum</p>
+                    </section>
+                    <section class="gameLevel">
+                        <p>Level:</p>
+                        <p>42</p>
+                    </section>
+                </section>
+            </article>
+            <article class="gameAwards">
+                <h2>Herní úspěchy:</h2>
+                <section class="awards">
+                    <section class="award"><i class="fa-solid fa-award"></i></section>
+                    <section class="award"><i class="fa-solid fa-award"></i></section>
+                    <section class="award"><i class="fa-solid fa-award"></i></section>
+                    <section class="award"><i class="fa-solid fa-award"></i></section>
+                    <section class="award"><i class="fa-solid fa-award"></i></section>
+                    <section class="award"><i class="fa-solid fa-award"></i></section>
+                    <section class="award"><i class="fa-solid fa-award"></i></section>
+                    <section class="award"><i class="fa-solid fa-award"></i></section>
+                    <section class="award"><i class="fa-solid fa-award"></i></section>
+                    <section class="award"><i class="fa-solid fa-award"></i></section>
+                    <section class="award"><i class="fa-solid fa-award"></i></section>
+                    <section class="award"><i class="fa-solid fa-award"></i></section>
+                    <section class="award"><i class="fa-solid fa-award"></i></section>
+                    <section class="award"><i class="fa-solid fa-award"></i></section>
+                    <section class="award"><i class="fa-solid fa-award"></i></section>
+                    <section class="award"><i class="fa-solid fa-award"></i></section>
+                    <section class="award"><i class="fa-solid fa-award"></i></section>
+                    <section class="award"><i class="fa-solid fa-award"></i></section>
+                    <section class="award"><i class="fa-solid fa-award"></i></section>
+                    <section class="award"><i class="fa-solid fa-award"></i></section>
+                </section>
+            </article>
+            <article class="cats">
+                <h2>Virtuální kočky:</h2>
+                <p>Zachráněno:</p>
+                <p><span>43</span> / 1 000</p>
+            </article>
+        </main>
+    </article>
+</body>
+</html>
+
+<!--
+    Zdroje:
+        - Font - Google fonts
+        - Ikony - Font Awesome
+        - Zavináč - https://www.compart.com/en/unicode/U+0040
+        - Gradient písmo - https://cssgradient.io/blog/css-gradient-text/
+-->
